@@ -34,11 +34,17 @@ function App() {
     const createProposal = async proposal => {
         // 前提：已连接metamask
         await wallet.methods.createProposal(proposal.amount, proposal.to).send({from: accounts[0]});
+        // 更新列表
+        const proposals = await wallet.methods.getProposals().call();
+        setProposals(proposals)
     }
 
-    const approve = index =>{
+    const approve = async index =>{
         // 前提：已连接metamask
-        wallet.methods.approve(index).send({from: accounts[0]});
+        await wallet.methods.approve(index).send({from: accounts[0]});
+        // 更新列表
+        const proposals = await wallet.methods.getProposals().call();
+        setProposals(proposals)
     }
 
 

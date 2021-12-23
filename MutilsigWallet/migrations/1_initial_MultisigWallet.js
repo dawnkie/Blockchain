@@ -7,5 +7,5 @@ module.exports = async function (deployer, _network, accounts) {
     // 合约实例化
     const wallet = await MultisigWallet.deployed();
     // 保证合约在操作前有存款
-    await web3.eth.sendTransaction({from: accounts[0], to: wallet.address, value: 1e18});
+    await web3.eth.sendTransaction({from: accounts[0], to: wallet.address, value: 1e8});
 };

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.1",
+    "prb-math": "^2.4.1"
+  }
+}
